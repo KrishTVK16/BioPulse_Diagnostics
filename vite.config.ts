@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     // For GitHub Pages: use repository name as base, or '/' for root domain
-    // IMPORTANT: Change 'biopulse-app' to your actual GitHub repository name
-    const base = process.env.GITHUB_PAGES === 'true' ? '/biopulse-app/' : '/';
+    // Repository name: BioPulse_Diagnostics
+    const base = process.env.GITHUB_PAGES === 'true' ? '/BioPulse_Diagnostics/' : '/';
     
     return {
       base,
