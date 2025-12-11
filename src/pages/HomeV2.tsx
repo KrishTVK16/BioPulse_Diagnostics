@@ -142,10 +142,10 @@ const HomeV2: React.FC = () => {
 
       {/* CTA Parallax */}
       <section className="relative py-32 bg-fixed bg-center bg-cover" style={{backgroundImage: "url('https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=2000')"}}>
-         <div className="absolute inset-0 bg-brand-bg/80 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-brand-bg/80 dark:bg-black/60 backdrop-blur-sm"></div>
          <div className="relative z-10 max-w-4xl mx-auto text-center px-4 flex flex-col items-center">
-            <h2 className="text-5xl font-heading font-bold text-brand-text mb-8">Precision. Speed. Care.</h2>
-            <p className="text-xl text-brand-textSec mb-10">Book your appointment today and experience the difference.</p>
+         <h2 className="text-5xl font-heading font-bold text-brand-text dark:text-white mb-8">Precision. Speed. Care.</h2>
+         <p className="text-xl text-brand-textSec dark:text-gray-200 mb-10">Book your appointment today and experience the difference.</p>
             <Button onClick={() => navigate('/appointments')} className="text-xl px-12 py-5 rounded-full">Book Appointment</Button>
          </div>
       </section>

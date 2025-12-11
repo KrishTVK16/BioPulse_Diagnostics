@@ -93,6 +93,9 @@ export const Navbar: React.FC = () => {
              <button onClick={() => navigate('/login')} className="px-5 py-2 rounded-full bg-brand-bgSec text-brand-text hover:bg-brand-accentSec transition-colors duration-300 text-sm font-medium">
                Login
              </button>
+             <button onClick={() => navigate('/register')} className="px-5 py-2 rounded-full bg-brand-bgSec text-brand-text hover:bg-brand-accentSec transition-colors duration-300 text-sm font-medium">
+               Register
+             </button>
           </div>
 
           <div className="-mr-2 flex lg:hidden items-center space-x-4">
@@ -117,7 +120,7 @@ export const Navbar: React.FC = () => {
         <div className="lg:hidden absolute top-20 left-0 w-full h-screen bg-black/50 z-40" onClick={() => setIsOpen(false)}>
             <div className="absolute right-0 top-0 w-64 h-full bg-brand-bgSec shadow-2xl p-6 flex flex-col space-y-6 transform transition-transform duration-300 border-l border-brand-border overflow-y-auto" onClick={(e) => e.stopPropagation()}>
                 <div className="flex flex-col space-y-2">
-                    <h3 className="text-sm font-bold text-brand-textSec uppercase tracking-wider mb-2">Views</h3>
+                    <h3 className="text-sm font-bold text-brand-textSec uppercase tracking-wider mb-2">Home</h3>
                     <Link to="/" onClick={() => setIsOpen(false)} className="text-lg font-medium text-brand-text hover:text-brand-accent">Classic View</Link>
                     <Link to="/home-v2" onClick={() => setIsOpen(false)} className="text-lg font-medium text-brand-text hover:text-brand-accent">Immersive</Link>
                 </div>
@@ -139,7 +142,7 @@ export const Navbar: React.FC = () => {
 
                  <div className="pt-6 border-t border-brand-border flex flex-col space-y-4">
                     <button onClick={() => {navigate('/appointments'); setIsOpen(false);}} className="w-full py-2 rounded bg-brand-accent text-brand-bg font-bold shadow-md hover:bg-brand-accentSec transition-colors">Book a Test</button>
-                    <button onClick={() => {navigate('/login'); setIsOpen(false);}} className="w-full py-2 rounded border border-brand-border text-brand-text hover:bg-brand-bg transition-colors">Portal Login</button>
+                    <button onClick={() => {navigate('/login'); setIsOpen(false);}} className="w-full py-2 rounded border border-brand-border text-brand-text hover:bg-brand-bg transition-colors">Login</button>
                  </div>
             </div>
         </div>
