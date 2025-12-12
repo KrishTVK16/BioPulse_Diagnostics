@@ -143,6 +143,7 @@ export const Navbar: React.FC = () => {
                  <div className="pt-6 border-t border-brand-border flex flex-col space-y-4">
                     <button onClick={() => {navigate('/appointments'); setIsOpen(false);}} className="w-full py-2 rounded bg-brand-accent text-brand-bg font-bold shadow-md hover:bg-brand-accentSec transition-colors">Book a Test</button>
                     <button onClick={() => {navigate('/login'); setIsOpen(false);}} className="w-full py-2 rounded border border-brand-border text-brand-text hover:bg-brand-bg transition-colors">Login</button>
+                    <button onClick={() => {navigate('/register'); setIsOpen(false);}} className="w-full py-2 rounded border border-brand-border text-brand-text hover:bg-brand-bg transition-colors">Register</button>
                  </div>
             </div>
         </div>
