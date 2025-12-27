@@ -13,6 +13,7 @@ import Register from './pages/Register';
 import About from './pages/About';
 import Doctors from './pages/Doctors';
 import Contact from './pages/Contact';
+import Dashboard from './pages/Dashboard';
 
 // Portals
 import PatientDashboard from './pages/portals/PatientDashboard';
@@ -21,7 +22,7 @@ import AdminDashboard from './pages/portals/AdminDashboard';
 
 const ScrollToTop = () => {
   const { pathname, search } = useLocation();
-  
+
   // useLayoutEffect fires before the browser paints the screen, 
   // ensuring the user sees the top of the page immediately without a flash of the scrolled-down view.
   useLayoutEffect(() => {
@@ -29,7 +30,7 @@ const ScrollToTop = () => {
     document.documentElement.scrollTo(0, 0);
     document.body.scrollTo(0, 0);
   }, [pathname, search]);
-  
+
   return null;
 };
 
@@ -52,44 +53,47 @@ const App: React.FC = () => {
         <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
         <Route path="/home-v2" element={<><Navbar /><HomeV2 /><Footer /></>} />
         <Route path="/diagnostics" element={<><Navbar /><Diagnostics /><Footer /></>} />
-        <Route path="/test/:id" element={<><Navbar /><TestDetails /><Footer /></>} /> 
+        <Route path="/test/:id" element={<><Navbar /><TestDetails /><Footer /></>} />
         <Route path="/appointments" element={<><Navbar /><Appointments /><Footer /></>} />
         <Route path="/about" element={<><Navbar /><About /><Footer /></>} />
         <Route path="/contact" element={<><Navbar /><Contact /><Footer /></>} />
         <Route path="/doctors" element={<><Navbar /><Doctors /><Footer /></>} />
-        
+
         {/* Auth Pages (No Navbar/Footer) */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
+        {/* Dashboard (No Navbar/Footer) */}
+        <Route path="/dashboard" element={<Dashboard />} />
+
         {/* Portals */}
         <Route path="/patient/*" element={
           <DashboardLayout role="patient">
-             <Routes>
-               <Route path="dashboard" element={<PatientDashboard />} />
-               <Route path="reports" element={<PatientDashboard />} /> 
-               <Route path="profile" element={<PatientDashboard />} />
-             </Routes>
+            <Routes>
+              <Route path="dashboard" element={<PatientDashboard />} />
+              <Route path="reports" element={<PatientDashboard />} />
+              <Route path="profile" element={<PatientDashboard />} />
+            </Routes>
           </DashboardLayout>
         } />
 
         <Route path="/doctor/*" element={
           <DashboardLayout role="doctor">
-             <Routes>
-               <Route path="dashboard" element={<DoctorDashboard />} />
-               <Route path="patients" element={<DoctorDashboard />} />
-               <Route path="reports" element={<DoctorDashboard />} />
-             </Routes>
+            <Routes>
+              <Route path="dashboard" element={<DoctorDashboard />} />
+              <Route path="patients" element={<DoctorDashboard />} />
+              <Route path="reports" element={<DoctorDashboard />} />
+            </Routes>
           </DashboardLayout>
         } />
 
         <Route path="/admin/*" element={
           <DashboardLayout role="admin">
-             <Routes>
-               <Route path="dashboard" element={<AdminDashboard />} />
-               <Route path="tests" element={<AdminDashboard />} />
-               <Route path="doctors" element={<AdminDashboard />} />
-             </Routes>
+            <Routes>
+              <Route path="dashboard" element={<AdminDashboard />} />
+              <Route path="tests" element={<AdminDashboard />} />
+              <Route path="doctors" element={<AdminDashboard />} />
+            </Routes>
           </DashboardLayout>
         } />
 
