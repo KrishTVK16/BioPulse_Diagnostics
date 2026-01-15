@@ -474,20 +474,6 @@ const Dashboard: React.FC = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6 flex-shrink-0">
-              {/* Admin Label */}
-              <div className="px-4 py-2 bg-brand-bg rounded-lg border border-brand-border flex-shrink-0">
-                <span className="text-brand-text font-medium whitespace-nowrap">Admin</span>
-              </div>
-
-              {/* Sidebar Toggle */}
-              <button
-                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="p-2 rounded-full text-brand-textSec hover:text-brand-accent hover:bg-brand-bg transition-colors flex-shrink-0"
-                aria-label="Toggle Sidebar"
-              >
-                {isSidebarOpen ? <ChevronRight className="h-6 w-6 flex-shrink-0" /> : <ChevronLeft className="h-6 w-6 flex-shrink-0" />}
-              </button>
-
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
@@ -505,6 +491,18 @@ const Dashboard: React.FC = () => {
                 <LogOut className="h-5 w-5 flex-shrink-0" />
                 <span className="font-medium whitespace-nowrap">Logout</span>
               </button>
+
+              {/* Quick Panel Toggle - Top Right */}
+              <div className="flex items-center space-x-2">
+                <span className="text-brand-text font-medium whitespace-nowrap">Quick Panel</span>
+                <button
+                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                  className="p-3 bg-brand-accent rounded-full shadow-2xl hover:scale-110 transition-transform flex-shrink-0"
+                  aria-label="Toggle Quick Panel"
+                >
+                  {isSidebarOpen ? <ChevronRight className="h-5 w-5 text-white flex-shrink-0" /> : <ChevronLeft className="h-5 w-5 text-white flex-shrink-0" />}
+                </button>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -528,11 +526,11 @@ const Dashboard: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-20 left-0 w-full h-screen bg-black/50 z-40" onClick={() => setIsMobileMenuOpen(false)}>
+            <div className="md:hidden absolute top-20 left-0 w-full h-screen bg-black/50 z-40" onClick={() => setIsMobileMenuOpen(false)}>
             <div className="absolute right-0 top-0 w-64 h-full bg-brand-bgSec shadow-2xl p-6 flex flex-col space-y-4 transform transition-transform duration-300 border-l border-brand-border overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-              {/* Admin Label */}
+              {/* Quick Panel Header */}
               <div className="px-4 py-2 bg-brand-bg rounded-lg border border-brand-border text-center">
-                <span className="text-brand-text font-medium">Admin</span>
+                <span className="text-brand-text font-medium">Quick Panel</span>
               </div>
 
               <div className="w-full h-px bg-brand-border"></div>
@@ -624,8 +622,7 @@ const Dashboard: React.FC = () => {
         >
           <div className="p-6 space-y-4">
             {/* Sidebar Header */}
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-heading font-bold text-brand-text">Quick Panel</h2>
+            <div className="flex items-center justify-end mb-4">
               <button
                 onClick={() => setIsSidebarOpen(false)}
                 className="p-2 rounded-full text-brand-textSec hover:text-brand-accent hover:bg-brand-bg transition-colors"
@@ -705,15 +702,6 @@ const Dashboard: React.FC = () => {
           </div>
         </aside>
 
-        {/* Mobile Sidebar Toggle Button */}
-        {!isSidebarOpen && (
-          <button
-            onClick={() => setIsSidebarOpen(true)}
-            className="fixed bottom-8 right-8 p-4 bg-brand-accent rounded-full shadow-2xl hover:scale-110 transition-transform z-50 hidden md:block"
-          >
-            <ChevronLeft className="h-6 w-6 text-white" />
-          </button>
-        )}
       </div>
     </div>
   );

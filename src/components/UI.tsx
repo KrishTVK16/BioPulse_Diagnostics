@@ -1,5 +1,4 @@
 import React from 'react';
-import { Dna } from 'lucide-react';
 
 export const Button: React.FC<{
   children: React.ReactNode;
@@ -34,13 +33,6 @@ export const SectionTitle: React.FC<{ title: string; subtitle?: string; align?: 
   // Enforcing center alignment generally as requested
   return (
     <div className={`mb-12 text-center`}>
-      {/* Logo Icon */}
-      <div className="flex justify-center mb-6">
-        <div className="relative">
-          <Dna className="h-12 w-12 md:h-16 md:w-16 text-brand-accent animate-pulse" />
-          <div className="absolute inset-0 bg-brand-accent blur-xl opacity-20 rounded-full"></div>
-        </div>
-      </div>
       <h2 className="text-3xl md:text-4xl font-heading font-bold text-brand-text mb-4">
         {title}
       </h2>

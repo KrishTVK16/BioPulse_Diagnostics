@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { Navbar, Footer, DashboardLayout } from './components/Layouts';
 
 // Public Pages
@@ -70,6 +70,7 @@ const App: React.FC = () => {
         <Route path="/patient/*" element={
           <DashboardLayout role="patient">
             <Routes>
+              <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<PatientDashboard />} />
               <Route path="reports" element={<PatientDashboard />} />
               <Route path="profile" element={<PatientDashboard />} />
@@ -80,6 +81,7 @@ const App: React.FC = () => {
         <Route path="/doctor/*" element={
           <DashboardLayout role="doctor">
             <Routes>
+              <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<DoctorDashboard />} />
               <Route path="patients" element={<DoctorDashboard />} />
               <Route path="reports" element={<DoctorDashboard />} />
@@ -90,6 +92,7 @@ const App: React.FC = () => {
         <Route path="/admin/*" element={
           <DashboardLayout role="admin">
             <Routes>
+              <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<AdminDashboard />} />
               <Route path="tests" element={<AdminDashboard />} />
               <Route path="doctors" element={<AdminDashboard />} />
